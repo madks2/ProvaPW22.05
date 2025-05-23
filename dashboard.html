@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Sistema de Voluntários</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="dashboard">
+  <div class="dashboard-container" style="display: flex;">
+    <nav class="sidebar">
+      <div class="logo">Voluntários</div>
+      <ul class="menu">
+        <li class="active"><a href="#" data-section="cadastro"><i class="icon">📝</i> Cadastro de Voluntário</a></li>
+        <li><a href="#" data-section="lista"><i class="icon">📋</i> Lista de Voluntários</a></li>
+        <li class="logout"><a href="index.html" id="logoutBtn"><i class="icon">🚪</i> Sair</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      
+      <div id="cadastro" class="content-section active">
+        <h2>Cadastro de Voluntário</h2>
+        <form id="formCadastro">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" required>
+            </div>
+            <div class="form-group">
+              <label for="cep">CEP</label>
+              <div class="cep-container">
+                <input type="text" id="cep" maxlength="9" required>
+                <button type="button" id="buscarCep">Buscar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" readonly>
+            </div>
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <input type="text" id="estado" readonly>
+            </div>
+          </div>
+
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+
+      <div id="lista" class="content-section">
+        <h2>Lista de Voluntários</h2>
+
+        <div class="weather-info" id="clima">
+          Buscando clima...
+        </div>
+
+        <div class="list-controls">
+          <div class="search-container">
+            <input type="text" id="search" placeholder="Filtrar por nome...">
+            <i class="search-icon">🔍</i>
+          </div>
+          <button id="clearAll" class="clear-all-btn">Limpar Tudo</button>
+        </div>
+
+        <div class="volunteers-list" id="volunteersList">
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="petal"></div>
+  <div class="petal"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+1. Estrutura de Pastas e Arquivos
+   - index.html: Página de login.
+   - cadastro.html: Formulário de cadastro de voluntário, com preenchimento automático de endereço pelo CEP.
+   - dashboard.html: Painel protegido para visualização da lista de voluntários, clima da cidade e navegação entre seções.
+   - style.css: Todo o CSS unificado, incluindo estilos para login, cadastro e dashboard.
+   - script.js: JavaScript unificado, com:
+     • Autenticação e controle de sessão (timeout por inatividade).  
+     • Preenchimento de endereço (logradouro, bairro, cidade, estado) via API ViaCEP.  
+     • Salvamento e leitura de voluntários no localStorage.  
+     • Inserção dinâmica de cards de voluntários e remoção.  
+     • Busca de clima via OpenWeatherMap baseado na cidade do voluntário.  
+     • Navegação entre seções “Cadastro” e “Lista” no dashboard.
+
+2. Fluxo de Uso
+   a) Acesse index.html.  
+   b) Faça login (usuário cadastrado) ou clique em “Cadastre-se” para criar conta.  
+   c) Em cadastro.html, preencha nome, email, senha e CEP; clique em “Buscar” ou aguarde o blur do campo CEP para preencher Rua, Bairro, Cidade e Estado.  
+   d) Após cadastro, redireciona para login.  
+   e) No dashboard.html, você verá menu lateral com “Cadastro de Voluntário” e “Lista de Voluntários”.  
+   f) Em “Cadastro”, insira novos voluntários e eles serão salvos no localStorage.  
+   g) Em “Lista”, visualize todos os voluntários, filtre por nome, exclua individualmente ou “Limpar Tudo”.  
+   h) Veja o clima atual da cidade do usuário logado no topo da lista.  
+   i) A sessão expira após 5 minutos de inatividade e redireciona para login.
+
+3. API Keys
+   - ViaCEP: Não requer chave.
+   - OpenWeatherMap: Substituir `WEATHER_API_KEY` em script.js pela sua chave (appid).
+
+4. IDs e data-page
+   - Cada HTML usa `body data-page="index"|"cadastro"|"dashboard"` para ativar somente o JS da página.  
+   - Todos os elementos referenciados em script.js devem ter os IDs corretos:  
+     • loginForm, loginEmail, loginSenha  
+     • cadastroForm, nome, email, senha, cep, rua (ou logradouro), bairro, cidade, estado, buscarCepBtn  
+     • logoutBtn, nomeUsuario, clima, listaVoluntarios, search, clearAll  
+
+5. Responsividade e Estilo
+   - style.css unificado cobre:
+     • Reset, fontes e backgrounds decorativos.  
+     • Containers com bordas arredondadas, sombras suaves.  
+     • Inputs e botões com gradientes rosa.  
+     • Sidebar fixa e responsiva.  
+     • Grid responsivo para cards de voluntários.
+
+6. Personalizações Futuras
+   - Suporte a múltiplos perfis de login.  
+   - Exportação de lista para CSV/PDF.  
+   - Autenticação real via backend.  
+   - Notificações em tempo real.  
